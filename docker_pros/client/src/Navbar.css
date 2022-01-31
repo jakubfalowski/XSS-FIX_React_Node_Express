@@ -1,0 +1,14 @@
+
+i{
+    margin-right: 10px;
+}
+.navbar-logo{
+    padding: 15px;
+    color: #fff;
+    pointer-events: none;
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}

@@ -1,0 +1,222 @@
+.App {
+  text-align: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ogolne */
+
+body{
+  background-color: rgb(39,45,50);
+  color: white;
+  text-align: center;
+}
+
+a, a:hover, a:focus, a:active{
+  color: white;
+  text-decoration: none;
+}
+h1,h2,h3,h4{
+  color: rgb(240,191,11);
+  margin-top: 10px;
+  text-align: center;
+  margin-top: 0;
+  padding-top: .5rem;
+  text-shadow: 0.8px 0.3px #FFE0BC;
+}
+.container{
+  background-color: rgba(0,0,0,0.2);
+  box-shadow: 10px 6px rgba(0,0,0,0.3);
+  padding: 0 0 10px 0;
+  min-height: 80vh;
+}
+div.p0{
+  padding: 0;
+}
+.ofert{
+  height: auto;
+  background-color: rgb(240,191,11);
+  color: black;
+  padding: 20px;
+  margin: 0 100px 30px 100px;
+}
+.text > a {
+  color: black!important;
+}
+.ofert > div > img {
+  width: auto;
+  max-height: 500px;
+  padding: 0;
+}
+.text p:first-of-type{
+  font-size: 20px;
+  max-height: 110px;
+  margin: 0;
+}
+.ofert .text:nth-of-type(2){
+  text-align: end;
+}
+#price{
+  font-size: 30px;
+}
+
+.product{
+  height: 188px;
+  overflow-y:hidden;
+  background-color: black;
+  width: 200px;
+  float: left;
+  margin-right: 5px;
+}
+.product img{
+  padding: 10px;
+}
+.product p{
+  margin: 0;
+}
+.product p:first-of-type{
+  max-height: 24px;
+  overflow-y:hidden;
+}
+.slider{
+  display: flex;
+  justify-content: center;
+}
+.all_slider:nth-of-type(even){
+  background-color: rgba(255,255,255,0.05);
+}
+
+/* strona główna */
+
+li i{
+  font-size: 40px;
+}
+
+select{
+  height: auto;
+}
+h2{
+  margin-top: 0;
+  padding-top: .5rem
+}
+
+ul{
+  margin-bottom: 0;
+  list-style-type: none;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+form.row{
+  margin: 0 110px;
+}
+@media (max-width: 991px){
+  form.row{
+      margin: 0 50px;
+  }
+}
+.slider{
+  display: flex;
+  justify-content: center;
+}
+
+.slider:nth-of-type(even){
+  background-color: rgba(255,255,255,0.05);
+}
+.product{
+  background-color: black;
+  width: 200px;
+  float: left;
+  margin-right: 5px;
+}
+.product img{
+  padding: 10px;
+}
+.product p{
+  margin: 0;
+}
+h4{
+  clear: both;
+}
+.slide{
+  padding: 0 110px;
+}
+
+/* mainbar */
+
+.mainbar{
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 7vh;
+  background-color: black;
+  color: aliceblue;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  z-index: 999;
+  
+}
+.lmain{
+  position: absolute;
+  left: 0;
+}
+
+.lmain > a{
+      margin-left: 200px;
+  }
+
+.rmain{
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+@media (max-width: 991px) {
+  .lmain > a{
+      margin-left: 100px;
+  }
+}
+
+@media (max-width: 776px) {
+  .lmain > a{
+      margin: 0;
+  }
+}
+
+.oferts{
+  background-color: black;
+  width: 50%;
+  margin: auto;
+}

@@ -1,3 +1,6 @@
+Po uruchomieniu Dockera należy wejść na strone
+http://localhost:3000/
+
 Domyślne logowanie
 
 login: test

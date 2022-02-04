@@ -18,7 +18,7 @@ function Register() {
   )},[])
 
   const submitUsers = () => {
-      Axios.post("http://localhost:4000/api/register", {
+      Axios.post("http://localhost:4000/api/register_niezabezpieczony", {
         username: username,
         password: password,
       }).then(() => {

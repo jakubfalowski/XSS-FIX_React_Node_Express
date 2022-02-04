@@ -77,18 +77,17 @@ router.post("/api/register", (req, res) => {
   })
 });
 
-// router.post("/api/register_niezabezpieczony", (req, res) => {
+router.post("/api/register_niezabezpieczony", (req, res) => {
 
-//   const username = req.body.username;
-//   const password = req.body.password;
-//   const email = req.body.email;
+  const username = req.body.username;
+  const password = req.body.password;
 
-//   const sqlInsert = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
-//   db.query(sqlInsert, [username, password,email], (err,result) => {
-//     console.log(result);
-//   });
-//   res.send(200);
-// });
+  const sqlInsert = "INSERT INTO users (username, password) VALUES (?, ?);";
+  db.query(sqlInsert, [username, password], (err,result) => {
+    console.log(result);
+  });
+  res.send(200);
+});
 
 router.post("/api/login", (req, res) => {
   
@@ -130,24 +129,24 @@ router.post("/api/login", (req, res) => {
     }
   })
 
-// router.post("/api/login_niezabezpieczony", (req, res) => {
+router.post("/api/login_niezabezpieczony", (req, res) => {
   
-//   const username = req.body.username;
-//   const password = req.body.password;
-//   // const email = req.body.email;
+  const username = req.body.username;
+  const password = req.body.password;
+  // const email = req.body.email;
 
-//     const sqlSelectUsers = "SELECT * FROM users WHERE username = ? AND password = ?";
-//     db.query(sqlSelectUsers,[username,password], (err,result) => {
+    const sqlSelectUsers = "SELECT * FROM users WHERE username = ? AND password = ?";
+    db.query(sqlSelectUsers,[username,password], (err,result) => {
 
-//       if(err) {res.send({err: err});}
-//       else if(result.length > 0) {res.send({message: response});}
-//       else {res.send({ message: "Nieudane logowanie"});}
+      if(err) {res.send({err: err});}
+      else if(result.length > 0) {res.send({message: response});}
+      else {res.send({ message: "Nieudane logowanie"});}
 
-//       // if(err) {console.log({err: err});}
-//       // else if(result) {console.log(result);}
-//       // else {console.log({ message: "Nieudane logowanie"});}
-//     });
-//   });
+      // if(err) {console.log({err: err});}
+      // else if(result) {console.log(result);}
+      // else {console.log({ message: "Nieudane logowanie"});}
+    });
+  });
 
 
 
@@ -219,36 +218,48 @@ router.post("/api/addOfertsByID", (req, res) => {
   });
   res.send(200);
 });
-
+// wersja zabezpieczona przed sql injection
 router.post("/api/selectOfertsByID", (req, res) => {
-  // console.log(req.body);
-  const searchID = req.body.searchID.query;
-  // console.log(req.body.searchID.query);
-  // console.log(req.body.searchID.query);
-  console.log("post: "+searchID);
   
-
-  // const sqlOfertSelect = "SELECT * FROM oferts WHERE endDate >= CURRENT_DATE AND category_id = ? ORDER BY endDate";
-  // db.query(sqlOfertSelect, searchID , (err,result) => {
-  //   console.log(result);
-  //   res.send(result);
-  // res.send(200);
-});
-
-router.get("/api/selectOfertsByID", (req, res) => {
-
   const searchID = req.body.searchID.query;
-  const search = req.params.query;
-  console.log("get: " + searchID+", "+search);
-  // const searchID = req.body.searchID.query;
-  // console.log("get: "+searchID);
-  // const sqlOfertSelect = "SELECT * FROM oferts WHERE endDate >= CURRENT_DATE AND category_id = ? ORDER BY endDate";
-  // db.query(sqlOfertSelect, searchID , (err,result) => {
-    
-  //   console.log(result);
-  //   res.send(result);
-  // });
+  console.log("post: "+searchID);
+  const sqlSelectUsers = "SELECT title, description FROM oferts WHERE category_id = ?;";
+  // console.log(db.query(sqlSelectUsers, searchID));
+  
+  db.query(sqlSelectUsers, searchID, (err,result) => {
+    if(response) console.log(result);
+  });
+
 });
+
+// wersja niezabezpieczona przed sql injection
+router.post("/api/selectOfertsByID2", (req, res) => {
+  
+  const searchID = req.body.searchID.query;
+  console.log("post: "+searchID);
+  const sqlSelectUsers = 'SELECT title, description FROM oferts WHERE category_id = '+searchID;
+  console.log(sqlSelectUsers);
+  
+  db.query(sqlSelectUsers, (err,result) => {
+    if(response) console.log(result);
+  });
+});
+
+
+// router.get("/api/selectOfertsByID", (req, res) => {
+
+//   const searchID = req.body.searchID.query;
+//   const search = req.params.query;
+//   console.log("get: " + searchID+", "+search);
+//   // const searchID = req.body.searchID.query;
+//   // console.log("get: "+searchID);
+//   // const sqlOfertSelect = "SELECT * FROM oferts WHERE endDate >= CURRENT_DATE AND category_id = ? ORDER BY endDate";
+//   // db.query(sqlOfertSelect, searchID , (err,result) => {
+    
+//   //   console.log(result);
+//   //   res.send(result);
+//   // });
+// });
 
 // router.use(session({
 //   secret: 'logowanie',

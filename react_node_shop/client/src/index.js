@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import './index.css';
 import Cookies from "js-cookie";
+import Axios from 'axios';
 
 import{
 BrowserRouter as Router,
@@ -55,6 +56,7 @@ function App(){
           <Route path={'/OfertAdd'} element={ Cookies.get("userId") ? <div className="container"><OfertAdd /></div> : <div className="container"><Error /></div>} />
           <Route path={'/OfertInfo'} element={<div className="container"><CategoryOption /></div> } />
           <Route path={'/Category'} element={Cookies.get("userId") ? <div className="container"><CategoriesAdd /><CategoriesSelect /><OfertSelectFromCategory /></div> : <div className="container"><CategoriesSelect /><OfertSelectFromCategory /></div> } />
+          <Route path='/test' > </Route> 
           <Route path='*' element={<Error /> } />
         </Routes>
         </Router>);

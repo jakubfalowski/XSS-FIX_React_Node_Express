@@ -22,9 +22,9 @@ function OfertSelect() {
       <h2> Nasze oferty </h2>
      
       {CategoryData.map((val) =>{
-          // return <div className="oferts"> <a href="#top" key={val.title}>{val.title}<p key={val.description.toString()}><b>Opis produktu:</b><br></br> {val.description} </p><p key={val.price.toString()}><b>Cena:</b><br></br> {val.price} </p><p key={val.amount.toString()}><b>Ilość:</b><br></br> {val.amount} </p><p key={val.endDate.toString()}><b>Oferta trwa do:</b><br></br> {val.endDate} </p></a></div>  /* wersja zabezpieczona */
+           return <div className="oferts"> <a href="#top" key={val.title}>{val.title}<p key={val.description.toString()}><b>Opis produktu:</b><br></br> {val.description} </p><p key={val.price.toString()}><b>Cena:</b><br></br> {val.price} </p><p key={val.amount.toString()}><b>Ilość:</b><br></br> {val.amount} </p><p key={val.endDate.toString()}><b>Oferta trwa do:</b><br></br> {val.endDate} </p></a></div>  /* wersja zabezpieczona */
           // return <div><b><span dangerouslySetInnerHTML={{"__html": val.title}} /></b> <br />Opis produktu: <span dangerouslySetInnerHTML={{"__html": val.description}} /></div>  /* wersja niezabezpieczona, kod HTML w dangerouslySetInnerHTML */
-           return <div><p><a href={val.title}>Nazwa użytkownika = {val.title}. Akapit przekierowuje do ścieżki twojego użytkownika </a></p></div>; /* wersja niezabezpieczona, kod javascript w atrybucie href znacznika a*/
+          // return <div><p><a href={val.title}>Nazwa użytkownika = {val.title}. Akapit przekierowuje do ścieżki twojego użytkownika </a></p></div>; /* wersja niezabezpieczona, kod javascript w atrybucie href znacznika a*/
         })}
       </div>)
 

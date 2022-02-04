@@ -9,7 +9,7 @@ function OfertSelectFromCategory() {
   const {search} = useLocation()
   const searchParams = new URLSearchParams(search)
   const query = searchParams.get('searchID');
-  const [searchID, setID] = useState("");
+  const [ID, setID] = useState("");
 
   const [CategoryData, setCategoryData] = useState([]);
 
@@ -35,12 +35,8 @@ function OfertSelectFromCategory() {
     <div className="page-content">
       <hr className="first"></hr>
      
-      {(query) ? <h2> Wyświetl oferty z kategorii o ID: {query} </h2> : <h2> Prosze wybrać kategorie </h2>} 
+      {(query) ? <h2> Obecna kategoria: {query} </h2> : <h2> Prosze wybrać kategorie </h2>} 
       <button onClick={insertID} > Wyświetl </button> 
-      <h2>Wybierz kategorie</h2>
-      <button onClick={selectWithCategories} > Wyświetl </button> 
-       <p> a {CategoryData.length} </p> 
-
       </div>)
 
 }
